@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>TenGym_Community Plan</title>
+
+<style>
+    
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background: #faf6f2;
+        color: #1a1a1a;
+        line-height: 1.5;
+    }
+
+    .page {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 80px 60px;
+    }
+
+    h1, h2, h3 {
+        margin: 0;
+        font-weight: 600;
+    }
+
+    /* ---------- SECCIÓN NUMERADA (02 + TÍTULO) ---------- */
+
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 18px;
+        margin-bottom: 40px;
+    }
+
+    .text-content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }   
+
+    .section-title {
+        font-size: 48px;
+        font-weight: 700;
+        margin: 0 0 5px 0;
+        padding: 0;
+        color: #b90000;
+        margin-bottom: 0.5rem;
+    }
+
+    .custom-underline {
+        width: 90%;
+        height: 1.5px;
+        background-color: #dbd9d9;
+        margin-top: 6px;
+        margin-left: 5px;
+    }
+
+    .section-number {
+        font-size: 110px;
+        font-weight: 220;
+        margin-left: 0px;
+        text-align: start;
+        color: #b90000;
+        line-height: 0.9;
+        flex-shrink: 0;
+    }
+
+    /* ---------- PORTADA ---------- */
+
+    .cover-title {
+        font-size: 220px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        text-align: center;
+        margin-bottom: -95px;
+        font-family: lato;
+        font-weight: 2200;
+    }
+
+    .cover-subtitle {
+        font-size: 144px;
+        margin-top: auto;
+        color: #b90000;
+        text-align: center;
+        margin-bottom: 230px;
+        font-family: "Inter";
+        font-weight: 2200;
+    }
+
+    .cover-description {
+        font-size: 30px;
+        color: #5d5d5d;
+        margin-top: 8px;
+        text-align: center;
+        margin-bottom: 30px;
+        font-family: monospace;
+        font-style: italic;
+    }
+
+    /* ---------- TEXTO PRINCIPAL ---------- */
+
+    .text-lg {
+        font-size: 38px;
+        margin-bottom: 10px;
+        color: #1a1a1ad3;
+        max-width: 660px;
+        margin-left: calc(125px + 18px);
+        text-align: justify;
+        margin-top: 17px;
+        display: block;
+        font-family: lato;
+    }
+
+    /* ---------- BENEFICIOS ---------- */
+
+    .benefits-container {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        font-size: 20px;
+        margin-top: 20px;
+        margin-left: calc(125px + 18px);
+        font-family: lato;
+        max-width: 650px;
+    }
+
+    .benefit-item {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        margin-bottom: 12px;
+    }
+
+    .benefit-icon {
+        color: #1a1a1a;
+        flex-shrink: 0;
+    }
+
+    .benefit-item span {
+        font-size: 36px;
+        line-height: 2.3;
+    }
+
+    /* ---------- CTA ---------- */
+    .cta-section {
+        margin-top: 60px;
+        text-align: left;
+    }
+
+    .cta-text {
+        font-size: 20px;
+        color: #3813c0;
+        max-width: 600px;
+        margin-bottom: 32px;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 16px 105px;
+        border-radius: 200px;
+        background-color: #B80D0D;
+        color: #fff;
+        font-size: 34px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 6px 22px rgba(184, 13, 13, 0.25);
+        transition: 0.2s ease;
+        max-width: 400px;
+        text-align: center;
+        margin-top: 10px;
+        display: block;
+        margin: 10px auto 0 auto;
+        margin-top: 50px;
+    }
+
+
+    /* ---------- SEPARADOR DE PÁGINA ---------- */
+
+    .page-break {
+        page-break-before: always;
+        margin-top: -25px;
+        margin-bottom: -25px;
+    }
+    
+    .page-break-after {
+        page-break-after: always;
+    }
+
+    /* ---------- FOOTER---------- */
+    .footer {
+        text-align: center;
+        margin-top: 20px;
+        font-style: bold;
+        font-size: 14px;
+        color: #545454bb;
+    }
+
+    .footer .logo {
+        max-width: 90px;
+        margin: 10px auto;
+        height: auto;
+        display: block;
+    }
+
+
+</style>
+</head>
+
+<body>
+
+<!-- ===========================
+    PAGE 01 — PORTADA
+=========================== -->
+<div class="page">
+    <h1 class="cover-title">TenGym</h1>
+    <h1 class="cover-subtitle">Community</h1>
+    <div class="cover-description">Diseñado para transformar tu inglés.</div>
+</div>
+    <div class="page page-break"></div>
+    <div class="page page-break"></div>
+<!-- ===========================
+    PAGE 02 — BIENVENIDA
+=========================== -->
+
+<div class="page page-break">
+    <div class="section-header">
+        <div class="section-number">01</div>
+        <div class="text-content">
+            <h2 class="section-title">BIENVENIDO/A A TENGYM</h2>
+            <div class="custom-underline"></div>
+        </div>
+    </div>
+
+    <p class="text-lg">
+        <strong>Gracias por elegir tu plan.</strong>
+    </p>
+        
+    <p class="text-lg">
+        Hemos organizado todo para que tengas un proceso sin fricción:
+        tú <strong>solo enfócate en avanzar</strong>, nosotros nos encargamos del resto.
+    </p>
+</div>
+
+<!-- ===========================
+    PAGE 03 — BENEFICIOS
+=========================== -->
+
+<div class="page page-break">
+    <div class="section-header">
+        <div class="section-number">02</div>
+        <div class="text-content">
+            <h2 class="section-title">LO QUE INCLUYE TU PLAN</h2>
+            <div class="custom-underline"></div>
+        </div>
+    </div>
+
+    <div class="benefits-container">
+        <div class="benefit-item">
+            <!-- Icono de acceso App -->
+            <a href="https://www.flaticon.com/free-icon-font/mobile-hand_17697837" class="view link-icon-detail" title="Mobile hand" data-id="17697837" data-src="?page=1&amp;position=7&amp;term=mobile&amp;origin=search">
+    <img src="https://cdn-icons-png.flaticon.com/128/17697/17697837.png" loading="lazy" alt="Mobile hand free interface icon" title="Mobile hand free interface icon" width="58" height="58">
+    
+</a>
+            <span>Acceso a TenGym App</span>
+        </div>
+
+        <div class="benefit-item">
+            <!-- Icono de MATERIAL APOYO -->
+            <img src="https://cdn-icons-png.flaticon.com/128/14227/14227542.png" width="58" height="58">
+            <span>Material de apoyo</span>
+        </div>
+
+        <div class="benefit-item">
+            <!-- Icono de GRUPO PEQUEÑO-->
+            <img src="https://cdn-icons-png.flaticon.com/128/18688/18688068.png" width="58" height="58">
+            <span>Grupo pequeño (1-4 personas)</span>
+        </div>
+
+        <div class="benefit-item">
+            <!-- Icono de COACHING SEMANAL-->
+            <img src="https://cdn-icons-png.flaticon.com/128/13085/13085451.png" width="58" height="58">
+            <span>Coaching personalizado semanal</span>
+        </div>
+
+        <div class="benefit-item">
+            <!-- Icono de 4 SESIONES SEMANALES-->
+            <img src="https://cdn-icons-png.flaticon.com/128/19007/19007534.png" width="58" height="58">
+            <span>4 sesiones semanales</span>
+        </div>
+
+        <div class="benefit-item">
+            <!-- Icono de COMUNIDAD DE APOYO-->
+            <img src="https://cdn-icons-png.flaticon.com/128/19010/19010151.png" width="58" height="58">
+            <span>Comunidad de apoyo</span>
+        </div>
+    </div>
+</div>
+
+<!-- ===========================
+    PAGE 04 — ACTIVAR ACCESO
+=========================== -->
+<div class="page page-break">
+    <div class="section-header">
+        <div class="section-number">03</div>
+        <div class="text-content">
+            <h2 class="section-title">EXPERIENCIA TENGYM </h2>
+            <div class="custom-underline"></div>
+        </div>
+    </div>
+
+    <!-- <p class="text-lg">
+        <strong>Estás a un paso de comenzar.</strong> 
+    </p> -->
+        
+    <p class="text-lg">
+       Disfruta de tu programa completo y <strong>acceso continuo a partir de hoy.</strong> 
+    </p>
+
+    <!-- Reemplaza "#" con tu enlace de PayPal -->
+    <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-1XK79912S4560653ENEOOXDY" class="cta-button">Disfrutar Ahora</a>
+</div>
+
+<!-- ===========================
+    FOOTER
+=========================== -->
+
+<div class="page">
+    <div class="footer">
+        <img src="https://i.imgur.com/b3wiWQt.png" class="logo" alt="Logo">
+        <p><strong>TenGym Academy</strong></p>
+        <p style="font-size: 14px; color: #545454;">
+            ¿Tienes dudas? Escríbenos a:<br>
+            <span style="color:#b00009">
+                <a href="mailto:support@tengymm.com" target="_blank">support@tengymm.com</a>
+            </span>
+        </p>
+        
+    </div>
+</div>
+
+</body>
+</html>
