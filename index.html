@@ -74,21 +74,21 @@
     /* ---------- PORTADA ---------- */
 
     .cover-title {
-        font-size: 220px;
+        font-size: 140px;
         font-weight: 700;
         margin-bottom: 12px;
         text-align: center;
-        margin-bottom: -95px;
+        margin-bottom: -75px;
         font-family: lato;
         font-weight: 2200;
     }
 
     .cover-subtitle {
-        font-size: 144px;
+        font-size: 124px;
         margin-top: auto;
         color: #b90000;
         text-align: center;
-        margin-bottom: 230px;
+        margin-bottom: 30px;
         font-family: "Inter";
         font-weight: 2200;
     }
@@ -124,7 +124,7 @@
         flex-direction: column;
         gap: 14px;
         font-size: 20px;
-        margin-top: 20px;
+        margin-top: 10px;
         margin-left: calc(125px + 18px);
         font-family: lato;
         max-width: 650px;
@@ -185,11 +185,19 @@
     .page-break {
         page-break-before: always;
         margin-top: -25px;
-        margin-bottom: -25px;
+        margin-bottom: 55px;
+    }
+
+    .page-break2 {
+        page-break-before: always;
+        margin-top: -50px;
+        margin-bottom: -138px;
     }
     
     .page-break-after {
         page-break-after: always;
+        margin-top: -10px;
+        margin-bottom: 45px;
     }
 
     /* ---------- FOOTER---------- */
@@ -197,13 +205,13 @@
         text-align: center;
         margin-top: 20px;
         font-style: bold;
-        font-size: 14px;
+        font-size: 20px;
         color: #545454bb;
     }
 
     .footer .logo {
         max-width: 90px;
-        margin: 10px auto;
+        margin: -12px auto;
         height: auto;
         display: block;
     }
@@ -217,18 +225,22 @@
 <!-- ===========================
     PAGE 01 — PORTADA
 =========================== -->
+
 <div class="page">
     <h1 class="cover-title">TenGym</h1>
     <h1 class="cover-subtitle">Elite</h1>
-    <div class="cover-description">Diseñado para transformar tu inglés.</div>
+        <div class="page page-break"></div>
+    <div class="cover-description">Hoy comienzas un cambio que te acompañará toda tu vida.</div>
 </div>
     <div class="page page-break"></div>
-    <div class="page page-break"></div>
+    
+
+
 <!-- ===========================
     PAGE 02 — BIENVENIDA
 =========================== -->
 
-<div class="page page-break">
+<div class="page page-break2">
     <div class="section-header">
         <div class="section-number">01</div>
         <div class="text-content">
@@ -251,7 +263,7 @@
     PAGE 03 — BENEFICIOS
 =========================== -->
 
-<div class="page page-break">
+<div class="page page-break2">
     <div class="section-header">
         <div class="section-number">02</div>
         <div class="text-content">
@@ -266,21 +278,21 @@
        <div class="benefit-item">
             <!-- Icono de PLAN 100% PERSONALIZADO-->
             <img src="https://cdn-icons-png.flaticon.com/128/16069/16069666.png" width="58" height="58">
-            <span>Plan 100% personalizado</span>
+            <span> <strong> Plan 100% personalizado </strong></span>
         </div>
 
 
         <div class="benefit-item">
             <!-- Icono de PRACTICA SEMANAL PARTICULAR-->
             <img src="https://cdn-icons-png.flaticon.com/128/10489/10489812.png" width="58" height="58">
-            <span>6 sesiones particulares semanales</span>
+            <span> <strong> 6 sesiones particulares semanales </strong></span>
         </div>
  
 
         <div class="benefit-item">
             <!-- Icono de FOGUEO CON NATIVO-->
             <img src="https://cdn-icons-png.flaticon.com/128/9585/9585903.png" width="58" height="58">
-            <span>Fogueo con nativo semanal</span>
+            <span> <strong> Fogueo con nativo semanal </strong></span>
         </div>
 
     
@@ -293,7 +305,7 @@
       <div class="benefit-item">
             <!-- Icono de COACHING SEMANAL-->
             <img src="https://cdn-icons-png.flaticon.com/128/13085/13085451.png" width="58" height="58">
-            <span>Coaching personalizado semanal</span>
+            <span> <strong> Coaching personalizado semanal </strong></span>
         </div>
 
 
@@ -321,7 +333,7 @@
             <!-- Icono de acceso App -->
             <a href="https://www.flaticon.com/free-icon-font/mobile-hand_17697837" class="view link-icon-detail" title="Mobile hand" data-id="17697837" data-src="?page=1&amp;position=7&amp;term=mobile&amp;origin=search">
     <img src="https://cdn-icons-png.flaticon.com/128/17697/17697837.png" loading="lazy" alt="Mobile hand free interface icon" title="Mobile hand free interface icon" width="58" height="58"></a>
-            <span>Acceso a TenGym App</span>
+            <span> <strong> Acceso a TenGym App </strong></span>
         </div>
 
 
@@ -351,7 +363,7 @@
 <!-- ===========================
     PAGE 04 — ACTIVAR ACCESO
 =========================== -->
-<div class="page page-break">
+<div class="page page-break2">
     <div class="section-header">
         <div class="section-number">03</div>
         <div class="text-content">
@@ -377,10 +389,11 @@
 =========================== -->
 
 <div class="page">
+     <div class="page-break-after"></div>
     <div class="footer">
         <img src="https://i.imgur.com/b3wiWQt.png" class="logo" alt="Logo">
         <p><strong>TenGym Academy</strong></p>
-        <p style="font-size: 14px; color: #545454;">
+        <p style="font-size: 20px; color: #545454;">
             ¿Tienes dudas? Escríbenos a:<br>
             <span style="color:#b00009">
                 <a href="mailto:support@tengymm.com" target="_blank">support@tengymm.com</a>
