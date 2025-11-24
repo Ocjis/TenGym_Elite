@@ -1,428 +1,530 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>TenGym_Elite Plan</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>TenGym Elite Plan</title>
 
 <style>
-    
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        background: #ffffff;
-        color: #1a1a1a;
-        line-height: 1.5;
-    }
+  :root{ /* colores y variables globales */
+    --bg-1: #ffffff;
+    --bg-2: #f8f8f8;
+    --bg-3: #efefef;
+    --card-bg: #f9f9f9;
+    --muted:#6b6b6b;
+    --text:#1a1a1a;
+    --brand:#b90000; /* rojo primario */
+    --radius:14px;
+  }
 
-    .page {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 80px 60px;
-    }
+  /* Mobile-first container */
+  body{
+    margin:0;
+    font-family: sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:var(--text);
+    background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 30%, var(--bg-3) 100%);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding-bottom:120px; /* espacio para sticky CTA */
+  }
 
-    h1, h2, h3 {
-        margin: 0;
-        font-weight: 600;
-    }
+  main{ max-width:760px; margin:0 auto; padding:20px; }
 
-    /* ---------- SECCIÓN NUMERADA (02 + TÍTULO) ---------- */
+  /* Hero */
+  .hero{ text-align:center; padding:14px 8px 28px; }
+  .hero img { width:84px; height:auto; margin:6px 0 8px; }
+  .hero h1{ font-family: lato,; font-size:34px; margin:6px 0 0; letter-spacing:-0.02em; color:#1a1a1a;} /* titulo principal */
+  .hero .phrase{ font-family: monospace; font-style:italic; color:var(--muted); margin-top:28px; font-size:12px; line-height:1.45; }
 
-    .section-header {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 50px;
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 18px;
-        margin-bottom: 40px;
-    }
+  /* Card / benefits container */
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding:16px;
+    box-shadow:
+      6px 6px 16px rgba(0,0,0,0.06),
+      -6px -6px 16px rgba(255,255,255,0.92);
+  }
 
-    .text-content {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-    }   
+  .section-title {
+    display:flex;
+    align-items:center;
+    gap:1px;
+    margin-bottom:12px;
+  }
+  .section-num{
+    font-size:48px;
+    color:var(--brand);
+    font-weight:600;
+    line-height:1;
+    width:64px;
+  }
+  .section-head{ /* titulo para benefits */
+    flex:1;
+    font-size:18px;
+    font-weight:700;
+    text-transform:uppercase;
+    color:var(--brand);
+    letter-spacing:0.6px;
+  }
 
-    .section-title {
-        font-size: 48px;
-        font-weight: 700;
-        margin: 0 0 5px 0;
-        padding: 0;
-        color: #b90000;
-        margin-bottom: 0.5rem;
-    }
-
-    .custom-underline {
-        width: 90%;
-        height: 1.5px;
-        background-color: #dbd9d9;
-        margin-top: 6px;
-        margin-left: 5px;
-    }
-
-    .section-number {
-        font-size: 110px;
-        font-weight: 220;
-        margin-left: 0px;
-        text-align: start;
-        color: #b90000;
-        line-height: 0.9;
-        flex-shrink: 0;
-    }
-
-    /* ---------- PORTADA ---------- */
-
-    .cover-title {
-        font-size: 140px;
-        font-weight: 700;
-        margin-bottom: 12px;
-        text-align: center;
-        margin-bottom: -75px;
-        font-family: lato;
-        font-weight: 2200;
-    }
-
-    .cover-subtitle {
-        font-size: 124px;
-        margin-top: auto;
-        color: #b90000;
-        text-align: center;
-        margin-bottom: 30px;
-        font-family: "Inter";
-        font-weight: 2200;
-    }
-
-    .cover-description {
-        font-size: 30px;
-        color: #5d5d5d;
-        margin-top: 8px;
-        text-align: center;
-        margin-bottom: 30px;
-        font-family: monospace;
-        font-style: italic;
-    }
-
-    /* ---------- TEXTO PRINCIPAL ---------- */
-
-    .text-lg {
-        font-size: 38px;
+   .section-description { /* pequeno copy para descriptions */
+        font-size: 15px;
         margin-bottom: 10px;
         color: #1a1a1ad3;
         max-width: 660px;
-        margin-left: calc(125px + 18px);
-        text-align: justify;
-        margin-top: 17px;
-        display: block;
-        font-family: lato;
+        /* margin-left: calc(125px + 18px); */
+        /* text-align: justify; */
+        /* margin-top: 17px;
+        margin-left: 40; */
+        /* display: block; */
+        /* font-family: lato; */
+        /* margin: 6px 0 12px 0; */
+        line-height: 1.4;
+         display:inline-flex;
+        align-items:flex-start;
+        justify-content:flex-start;
     }
 
-    /* ---------- BENEFICIOS ---------- */
-
-    .benefits-container {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        font-size: 20px;
-        margin-top: 10px;
-        margin-left: calc(125px + 18px);
-        font-family: lato;
-        max-width: 650px;
-    }
-
-    .benefit-item {
-        display: flex;
-        align-items: center;
-        gap: 50px;
-        margin-bottom: 12px;
-    }
-
-    .benefit-icon {
-        color: #1a1a1a;
-        flex-shrink: 0;
-    }
-
-    .benefit-item span {
-        font-size: 36px;
-        line-height: 2.3;
-    }
-
-    /* ---------- CTA ---------- */
-    .cta-section {
-        margin-top: 60px;
-        text-align: left;
-    }
-
-    .cta-text {
-        font-size: 20px;
-        color: #3813c0;
-        max-width: 600px;
-        margin-bottom: 32px;
-    }
-
-    .cta-button {
-        display: inline-block;
-        padding: 16px 105px;
-        border-radius: 200px;
-        background-color: #B80D0D;
-        color: #fff;
-        font-size: 34px;
-        font-weight: 600;
-        text-decoration: none;
-        box-shadow: 0 6px 22px rgba(184, 13, 13, 0.25);
-        transition: 0.2s ease;
-        max-width: 400px;
-        text-align: center;
-        margin-top: 10px;
-        display: block;
-        margin: 10px auto 0 auto;
-        margin-top: 50px;
-    }
-
-
-    /* ---------- SEPARADOR DE PÁGINA ---------- */
-
-    .page-break {
-        page-break-before: always;
-        margin-top: -25px;
-        margin-bottom: 55px;
-    }
-
-    .page-break2 {
-        page-break-before: always;
-        margin-top: -50px;
-        margin-bottom: -138px;
-    }
+  /* list */
+  .list { list-style:none; padding:0; margin:8px 0 0; }
+  .feature {
+    display:flex;
+    gap: 4px;
+    align-items:center;
+    padding:12px 6px;
+    border-radius:10px;
+    margin-bottom: -6px;
+   
     
-    .page-break-after {
-        page-break-after: always;
-        margin-top: -10px;
-        margin-bottom: 45px;
-    }
+  }
 
-    /* ---------- FOOTER---------- */
-    .footer {
-        text-align: center;
-        margin-top: 12px;
-        font-style: bold;
-        font-size: 20px;
-        color: #545454;
-        /* box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.0588); */
-        background-color: #e9e9e982;
-        padding: 20px;
-    }
+  .feature + .feature { 
+    margin-top:2px; 
+}
 
-    .header-container {
-        text-align: center;
-        margin-top: 12px;
-        margin-bottom: -52px;
-        font-style: bold;
-        font-size: 20px;
-        color: #545454bb;
-        padding: 20px;
-    }
-
-    .footer-container {
-         border-radius: 8px;
-        max-width: 1200px;
-        margin: 0 auto;
-
-
-    }
-    .footer .logo {
-        max-width: 960px;
-        margin: -12px auto;
-        height: auto;
-        display: block;
-        justify-content: center;
-        align-items: center;
+    .icons {
+        width: 26px;
+        height:26px;
+        fill: #b90000;
+        align-items: flex-start;
+        justify-content: flex-start;
+        font-size: 22px;
+        flex-shrink: 0;
+        display: inline-flex;
+        flex: 0 0 26px;
+        opacity:0.98; 
+        margin: 3px;
 
     }
 
+    .icons svg {
+        width: 100%;
+        height: 100%;
+    }
 
+  
+  .feature .icon {
+    width: 22px;
+    height:22px;
+    /* flex:0 0 38px; */
+    display:inline-flex;
+    align-items:flex-start;
+    justify-content:flex-start;
+    color:var(--card-bg);
+    opacity:0.98; 
+    margin: 28px;
+    font-size: 24px;
+  }
+
+  .feature .text{
+    font-size:15px;
+    color:var(--text);
+    line-height:1.45;
+    flex: 1;
+    
+
+  }
+  .feature .text .muted { 
+    color:var(--muted); font-weight:400; 
+}
+
+  /* More list (colapsable) */
+  .more-wrap{
+
+   
+    overflow:hidden;
+    transition: max-height 450ms cubic-bezier(.2,.9,.2,1);
+    will-change: max-height;
+    
+    max-height: 0; /* collapsed */
+  }
+  .more-wrap.open{
+    max-height: 1200px; /* suficientemente grande */
+  }
+
+  /* toggle control */
+  .toggle-row {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:12px;
+  }
+  .toggle-btn {
+    background:transparent;
+    border:0;
+    color:var(--brand);
+    font-weight:700;
+    font-size:15px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+    padding:12px 14px;
+    border-radius:10px;
+    transition: transform .14s ease;
+  }
+  .toggle-btn:active{ transform: translateY(1px); }
+  .arrow {
+    display:inline-block;
+    transition: transform .25s ease;
+  }
+  .toggle-btn[aria-expanded="true"] .arrow { transform: rotate(90deg); }
+
+  /* sticky CTA */
+  .sticky-cta{
+    position:fixed;
+    left:12px;
+    right:12px;
+    bottom:14px;
+    z-index:999;
+    display:flex;
+    justify-content:center;
+    pointer-events:auto;
+  }
+  .cta {
+    width:100%;
+    max-width:760px;
+    padding:14px 18px;
+    border-radius:12px;
+    font-weight:600;
+    font-size:17px;
+    color:#fff;
+    background: linear-gradient(45deg,#b90000,#941313);
+    box-shadow:0 10px 26px rgba(183,28,28,0.18), -6px -6px 12px rgba(255,255,255,0.06);
+    text-decoration:none;
+    text-align:center;
+    display:inline-block;
+  }
+  .cta:active{ transform: translateY(2px); box-shadow: inset 4px 4px 10px rgba(0,0,0,0.22); }
+
+  /* small utilities */
+  .muted-small { color:var(--muted); font-size:13px; text-align:center; padding:12px 10px 24px; }
+  a.inline-link{ color:var(--brand); text-decoration:underline; }
+
+  /* Accessibility focus */
+  .toggle-btn:focus, .cta:focus, .feature:focus { outline: 3px solid rgba(183,28,28,0.12); outline-offset:3px; }
+
+  /* prefers reduce motion */
+  @media (prefers-reduced-motion: reduce){
+    .hero .phrase, .more-wrap { transition:none; }
+    .arrow { transition:none; }
+  }
+
+  /* Desktop small polish */
+  @media(min-width:680px){
+    .hero h1{ font-size:48px; }
+    main{ padding:28px; }
+    .section-num{ font-size:64px; width:92px; }
+  }
 </style>
 </head>
-
 <body>
 
-<!-- ===========================
-    PAGE 01 — PORTADA
-=========================== -->
+<main>
+  <!-- Hero (usa la imagen subida como logo) -->
+  <section class="hero">
+    <img src="/mnt/data/4850C423-C905-47E6-A27F-6EE2F2C4D77B.jpeg" alt="TenGym Logo" />
+    <h1>TenGym <span style="display:block;color:var(--brand);font-weight:700;">Elite</span></h1>
 
-<div class="page">
-    <div class="header-container"> <img src="https://i.imgur.com/b3wiWQt.png" class="logo" alt="Logo"> </div>
-        
-    <h1 class="cover-title">TenGym</h1>
-    <h1 class="cover-subtitle">Elite</h1>
-        <div class="page page-break"></div>
-    <div class="cover-description">Hoy comienzas un cambio que te acompañará toda tu vida.</div>
-</div>
-    <div class="page page-break"></div>
-    
-
-
-<!-- ===========================
-    PAGE 02 — BIENVENIDA
-=========================== -->
-
-<div class="page page-break2">
-    <div class="section-header">
-        <div class="section-number">01</div>
-        <div class="text-content">
-            <h2 class="section-title">BIENVENIDO/A A TENGYM</h2>
-            <div class="custom-underline"></div>
-        </div>
-    </div>
-
-    <p class="text-lg">
-        <strong>Gracias por elegir tu plan.</strong>
-    </p>
-        
-    <p class="text-lg">
-        Hemos organizado todo para que tengas un proceso sin fricción:
-        tú <strong>solo enfócate en avanzar</strong>, nosotros nos encargamos del resto.
-    </p>
-</div>
-
-<!-- ===========================
-    PAGE 03 — BENEFICIOS
-=========================== -->
-
-<div class="page page-break2">
-    <div class="section-header">
-        <div class="section-number">02</div>
-        <div class="text-content">
-            <h2 class="section-title">LO QUE INCLUYE TU PLAN</h2>
-            <div class="custom-underline"></div>
-        </div>
-    </div>
-
-    <div class="benefits-container">
-
-
-       <div class="benefit-item">
-            <!-- Icono de PLAN 100% PERSONALIZADO-->
-            <img src="https://cdn-icons-png.flaticon.com/128/16069/16069666.png" width="58" height="58">
-            <span> <strong> Plan 100% personalizado </strong></span>
-        </div>
-
-
-        <div class="benefit-item">
-            <!-- Icono de PRACTICA SEMANAL PARTICULAR-->
-            <img src="https://cdn-icons-png.flaticon.com/128/10489/10489812.png" width="58" height="58">
-            <span> <strong> 6 sesiones particulares semanales </strong></span>
-        </div>
- 
-
-        <div class="benefit-item">
-            <!-- Icono de FOGUEO CON NATIVO-->
-            <img src="https://cdn-icons-png.flaticon.com/128/9585/9585903.png" width="58" height="58">
-            <span> <strong> Fogueo con nativo semanal </strong></span>
-        </div>
+         <p class="phrase"> Hecho para personas que no se conforman. </p> <!-- frases TenGym Elite -->
 
     
-        <div class="benefit-item">
-            <!-- Icono de 4 SESIONES SEMANALES-->
-            <img src="https://cdn-icons-png.flaticon.com/128/19007/19007534.png" width="58" height="58">
-            <span>4 sesiones grupales semanales</span>
-        </div>
 
-      <div class="benefit-item">
-            <!-- Icono de COACHING SEMANAL-->
-            <img src="https://cdn-icons-png.flaticon.com/128/13085/13085451.png" width="58" height="58">
-            <span> <strong> Coaching personalizado semanal </strong></span>
-        </div>
-
-
-        <div class="benefit-item">
-            <!-- Icono de GRUPO PEQUEÑO-->
-            <img src="https://cdn-icons-png.flaticon.com/128/18688/18688068.png" width="58" height="58">
-            <span>Grupo reducido (1-4 personas)</span>
-        </div>
-
-
-         <div class="benefit-item">
-            <!-- Icono de MATERIAL EXCLUSIVO-->
-            <img src="https://cdn-icons-png.flaticon.com/128/7720/7720129.png"  width="58" height="58">
-            <span>Material exclusivo</span>
-        </div>
-
-        <div class="benefit-item">
-            <!-- Icono de CONTENIDO PERSONALIZADO-->
-            <img src="https://cdn-icons-png.flaticon.com/128/15398/15398567.png"  width="58" height="58">
-            <span>Contenido personalizado</span>
-        </div>
-
-
-        <div class="benefit-item">
-            <!-- Icono de acceso App -->
-            <a href="https://www.flaticon.com/free-icon-font/mobile-hand_17697837" class="view link-icon-detail" title="Mobile hand" data-id="17697837" data-src="?page=1&amp;position=7&amp;term=mobile&amp;origin=search">
-    <img src="https://cdn-icons-png.flaticon.com/128/17697/17697837.png" loading="lazy" alt="Mobile hand free interface icon" title="Mobile hand free interface icon" width="58" height="58"></a>
-            <span> <strong> Acceso a TenGym App </strong></span>
-        </div>
-
-
-        <div class="benefit-item">
-            <!-- Icono de COMUNIDAD DE APOYO-->
-            <img src="https://cdn-icons-png.flaticon.com/128/17484/17484846.png"  width="58" height="58">
-            <span>Comunidad de apoyo</span>
-        </div>
-
-        <div class="benefit-item">
-            <!-- Icono de MATERIAL APOYO -->
-            <img src="https://cdn-icons-png.flaticon.com/128/14227/14227542.png" width="58" height="58">
-            <span>Recursos</span>
-        </div>
-
-
-        <div class="benefit-item">
-            <!-- Icono de FACILIDADES DE PAGO-->
-            <img src="https://cdn-icons-png.flaticon.com/128/19006/19006898.png" width="58" height="58">
-            <span>Facilidades de pago</span>
-        </div>
-
-
-    </div>
-</div>
-
-<!-- ===========================
-    PAGE 04 — ACTIVAR ACCESO
-=========================== -->
-<div class="page page-break2">
-    <div class="section-header">
-        <div class="section-number">03</div>
-        <div class="text-content">
-            <h2 class="section-title">EXPERIENCIA TENGYM </h2>
-            <div class="custom-underline"></div>
-        </div>
-    </div>
-
-    <!-- <p class="text-lg">
-        <strong>Estás a un paso de comenzar.</strong> 
-    </p> -->
         
-    <p class="text-lg">
-       Disfruta de tu programa completo y <strong>acceso continuo a partir de hoy.</strong> 
-    </p>
+  </section>
 
-    <!-- Reemplaza "#" con tu enlace de PayPal -->
-    <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-0A461182YP962081ANEOO2VY" class="cta-button">Disfrutar Ahora</a>
-</div>
 
-<!-- ===========================
-    FOOTER
-=========================== -->
+  <!-- Benefits -->
 
-<div class="page">
-     <div class="page-break-after"></div>
-   
-     <div class="footer">
-        
+  <section style="margin-top:6px;">
+<div class="card">
+      <div class="section-title">
+        <div class="section-num">01</div>
+        <div class="section-head">Benficios de tu plan</div>
+      </div>
+
+      <!-- ** AQUI EMPIEZA MI LISTA VISIBLE ** -->
+
+ <ul class="list" id="visible-list">
          
-            <strong>¿Necesitas ayuda? Escríbenos a:<br> </strong>
-                <a href="mailto:support@tengymm.com" target="_blank">support@tengymm.com</a>
-                <p><strong>TenGym Academy</strong></p></span>
-        </p>
+    <li class="feature">
+        <div class="icons">
         
+            <!-- Icono de PLAN 100% PERSONALIZADO-->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M9,12c3.309,0,6-2.691,6-6S12.309,0,9,0,3,2.691,3,6s2.691,6,6,6Zm0-11c2.757,0,5,2.243,5,5s-2.243,5-5,5-5-2.243-5-5S6.243,1,9,1Zm12.5,10h-6c-1.379,0-2.5,1.122-2.5,2.5v8c0,1.378,1.121,2.5,2.5,2.5h6c1.379,0,2.5-1.122,2.5-2.5V13.5c0-1.378-1.121-2.5-2.5-2.5Zm1.5,10.5c0,.827-.673,1.5-1.5,1.5h-6c-.827,0-1.5-.673-1.5-1.5V13.5c0-.827,.673-1.5,1.5-1.5h6c.827,0,1.5,.673,1.5,1.5v8Zm-2-7.003c0,.276-.224,.5-.5,.5h-4c-.276,0-.5-.224-.5-.5s.224-.5,.5-.5h4c.276,0,.5,.224,.5,.5Zm0,3.003c0,.276-.224,.5-.5,.5h-4c-.276,0-.5-.224-.5-.5s.224-.5,.5-.5h4c.276,0,.5,.224,.5,.5Zm0,2.997c0,.276-.224,.5-.5,.5h-4c-.276,0-.5-.224-.5-.5s.224-.5,.5-.5h4c.276,0,.5,.224,.5,.5Zm-10.008-5.778c-.049,.272-.311,.453-.579,.405-.465-.082-.94-.124-1.413-.124-4.411,0-8,3.589-8,8v.5c0,.276-.224,.5-.5,.5s-.5-.224-.5-.5v-.5c0-4.962,4.037-9,9-9,.531,0,1.065,.047,1.587,.14,.272,.048,.454,.308,.405,.58Z"/>
+            </svg>
+        </div>
+                <span> Plan 100% personalizado</span>
+
+    </li>
+
+
+    <li class="feature">
+        <div class="icons">
+        
+             <!-- Icono de FOGUEO CON NATIVO-->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path xmlns="http://www.w3.org/2000/svg" d="M12.5,24c.135,0-.053,.019,0,0h0Zm0,0C5,24,0,18.617,0,12S5.383,0,12,0s12,5.383,12,12c0,7-5.5,12-11.5,12Zm3.93-20h-.93c-.827,0-1.5,.673-1.5,1.5v1c0,.827-.673,1.5-1.5,1.5s-1.5,.673-1.5,1.5v1c0,.827,.673,1.5,1.5,1.5h3c1.379,0,2.5,1.121,2.5,2.5v.5c0,.106,.055,2.576,2.524,3.941,1.546-1.895,2.476-4.31,2.476-6.941,0-3.691-1.833-6.955-4.63-8.951-.472,.591-1.175,.951-1.94,.951Zm-4.43,13.5c0-.827-.673-1.5-1.5-1.5h-3.258c-.921,0-1.823-.374-2.475-1.025l-3.729-3.729c-.017,.25-.038,.5-.038,.755,0,6.065,4.935,11,11,11v-5.5Zm7.84,2.202c-2.8-1.676-2.84-4.574-2.84-4.702v-.5c0-.827-.673-1.5-1.5-1.5h-3c-1.379,0-2.5-1.122-2.5-2.5v-1c0-1.378,1.121-2.5,2.5-2.5,.275,0,.5-.224,.5-.5v-1c0-1.378,1.121-2.5,2.5-2.5h.93c.425,0,.817-.186,1.099-.495-1.627-.951-3.512-1.505-5.528-1.505C6.623,1,2.143,4.88,1.193,9.986l4.281,4.281c.466,.466,1.109,.732,1.768,.732h3.258c1.379,0,2.5,1.121,2.5,2.5v5.449c2.668-.242,5.063-1.438,6.84-3.247Z"/>
+            </svg>
+        </div>
+                <span> Fogueo con nativo semanal </span>
+
+    </li>
+
+
+    <li class="feature">
+        <div class="icons">
+        
+             <!-- Icono de FOGUEO CON NATIVO-->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path xmlns="http://www.w3.org/2000/svg" d="m7,14c2.206,0,4-1.794,4-4s-1.794-4-4-4-4,1.794-4,4,1.794,4,4,4Zm0-7c1.654,0,3,1.346,3,3s-1.346,3-3,3-3-1.346-3-3,1.346-3,3-3Zm7,16v.5c0,.276-.224.5-.5.5s-.5-.224-.5-.5v-.5c0-3.309-2.691-6-6-6s-6,2.691-6,6v.5c0,.276-.224.5-.5.5s-.5-.224-.5-.5v-.5c0-3.859,3.14-7,7-7s7,3.141,7,7ZM19.535,0h-10.035c-2.055,0-3.847,1.388-4.358,3.375-.069.268.092.54.36.609.263.069.54-.092.609-.359.397-1.546,1.792-2.625,3.39-2.625h10.035c1.93,0,3.5,1.57,3.5,3.498l-.035,9.002c0,1.93-1.57,3.5-3.5,3.5h-.5v-1.5c0-.827-.673-1.5-1.5-1.5h-2c-.827,0-1.5.673-1.5,1.5v1c0,.827.673,1.5,1.5,1.5h4c2.481,0,4.5-2.019,4.5-4.498l.035-9.002c0-2.481-2.019-4.5-4.5-4.5Zm-1.535,17h-2.5c-.276,0-.5-.225-.5-.5v-1c0-.275.224-.5.5-.5h2c.276,0,.5.225.5.5v1.5Z"/>
+            </svg>
+        </div>
+                <span> 6 sesiones de particulares semanales </span>
+
+    </li>
+
+
+    <li class="feature">
+        <div class="icons">
+        
+             <!-- Icono de COACHING SEMANAL-->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path xmlns="http://www.w3.org/2000/svg" d="m7,13.5c0-.276.224-.5.5-.5h9c.276,0,.5.224.5.5s-.224.5-.5.5H7.5c-.276,0-.5-.224-.5-.5Zm0-8v-3c0-1.378,1.122-2.5,2.5-2.5h5c1.378,0,2.5,1.122,2.5,2.5v3c0,1.378-1.122,2.5-2.5,2.5-.116,0-.369.041-.458.115l-1.375,1.138c-.186.165-.423.248-.663.248-.244,0-.489-.086-.684-.259l-1.362-1.127c-.089-.074-.342-.115-.458-.115-1.378,0-2.5-1.122-2.5-2.5Zm1,0c0,.827.673,1.5,1.5,1.5.349,0,.828.123,1.096.344l1.375,1.138,1.433-1.138c.268-.222.748-.344,1.096-.344.827,0,1.5-.673,1.5-1.5v-3c0-.827-.673-1.5-1.5-1.5h-5c-.827,0-1.5.673-1.5,1.5v3Zm11,1c0-1.378,1.122-2.5,2.5-2.5s2.5,1.122,2.5,2.5-1.122,2.5-2.5,2.5-2.5-1.122-2.5-2.5Zm1,0c0,.827.673,1.5,1.5,1.5s1.5-.673,1.5-1.5-.673-1.5-1.5-1.5-1.5.673-1.5,1.5Zm3.5,14.5h-3c-.827,0-1.5.673-1.5,1.5v1c0,.276.224.5.5.5s.5-.224.5-.5v-1c0-.276.224-.5.5-.5h3c.276,0,.5-.224.5-.5s-.224-.5-.5-.5Zm.5-8.5v4c0,1.378-1.122,2.5-2.5,2.5h-3.5c-.551,0-1,.449-1,1v3.5c0,.276-.224.5-.5.5s-.5-.224-.5-.5v-3.5c0-1.103.897-2,2-2h1v-5.5c0-1.378,1.122-2.5,2.5-2.5s2.5,1.122,2.5,2.5Zm-1,0c0-.827-.673-1.5-1.5-1.5s-1.5.673-1.5,1.5v5.5h1.5c.827,0,1.5-.673,1.5-1.5v-4ZM3.5,21H.5c-.276,0-.5.224-.5.5s.224.5.5.5h3c.276,0,.5.224.5.5v1c0,.276.224.5.5.5s.5-.224.5-.5v-1c0-.827-.673-1.5-1.5-1.5ZM0,6.5c0-1.378,1.122-2.5,2.5-2.5s2.5,1.122,2.5,2.5-1.122,2.5-2.5,2.5S0,7.878,0,6.5Zm1,0c0,.827.673,1.5,1.5,1.5s1.5-.673,1.5-1.5-.673-1.5-1.5-1.5-1.5.673-1.5,1.5Zm7,13.5v3.5c0,.276-.224.5-.5.5s-.5-.224-.5-.5v-3.5c0-.551-.449-1-1-1h-3.5c-1.378,0-2.5-1.122-2.5-2.5v-4c0-1.378,1.122-2.5,2.5-2.5s2.5,1.122,2.5,2.5v5.5h1c1.103,0,2,.897,2,2Zm-4-7.5c0-.827-.673-1.5-1.5-1.5s-1.5.673-1.5,1.5v4c0,.827.673,1.5,1.5,1.5h1.5v-5.5Z"/>
+            </svg>
+        </div>
+                <span> Coaching personalizado semanal </span>
+
+    </li>
+
+
+    <li class="feature">
+        <div class="icons">
+        
+            <!-- Icono de acceso App -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path xmlns="http://www.w3.org/2000/svg" d="M19.5,0h-6c-2.481,0-4.5,2.019-4.5,4.5v5c0,.276,.224,.5,.5,.5s.5-.224,.5-.5V4.5c0-1.93,1.57-3.5,3.5-3.5h6c1.93,0,3.5,1.57,3.5,3.5V15H14.614c.655-1.089,.453-2.523-.545-3.371-.996-.846-2.484-.832-3.467,.038l-4.438,4c-.205,.185-.222,.501-.036,.707,.184,.205,.5,.221,.706,.037l4.434-3.997c.607-.538,1.532-.547,2.153-.022,.689,.586,.773,1.625,.157,2.353l-3.776,5.443c-.525,.757-.803,1.644-.803,2.565v.748c0,.276,.224,.5,.5,.5s.5-.224,.5-.5v-.748c0-.672,.197-1.317,.557-1.88,.814,.71,1.849,1.128,2.943,1.128h6c2.481,0,4.5-2.019,4.5-4.5V4.5c0-2.481-2.019-4.5-4.5-4.5Zm3.5,17.5c0,1.93-1.57,3.5-3.5,3.5h-6c-.891,0-1.733-.356-2.379-.959l2.81-4.054c.023,.003,9.068,.014,9.068,.014v1.5Zm-8.5,1c0-.276,.224-.5,.5-.5h3c.276,0,.5,.224,.5,.5s-.224,.5-.5,.5h-3c-.276,0-.5-.224-.5-.5ZM6.838,7.869l-2.757,2.527c-1.958,1.794-3.081,4.347-3.081,7.003v6.101c0,.276-.224,.5-.5,.5s-.5-.224-.5-.5v-6.101c0-2.936,1.241-5.756,3.405-7.74l2.757-2.527c.203-.185,.519-.172,.706,.031,.187,.204,.173,.52-.03,.707Z"/>
+            </svg>
+        </div>
+                <span>  Acceso a TenGym App </span>
+
+        </li>
+          <!-- ** AQUI TERMINA MI LISTA VISIBLE ** -->
+
+          
+      </ul>
+      
+
+
+        <!-- ** AQUI EMPIEZA MI LISTA COLAPSADA ** -->
+      <!-- Contenido adicional colapsable -->
+<div id="more-wrap" class="more-wrap" aria-hidden="true">
+        <ul class="list" style="margin-top:6px;">
+
+
+
+             <li class="feature">
+        <div class="icons">
+        
+             <!-- Icono de GRUPO PEQUEÑO-->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path xmlns="http://www.w3.org/2000/svg"  d="m21.5 9c1.378 0 2.5-1.122 2.5-2.5s-1.122-2.5-2.5-2.5-2.5 1.122-2.5 2.5 1.122 2.5 2.5 2.5zm0-4c.827 0 1.5.673 1.5 1.5s-.673 1.5-1.5 1.5-1.5-.673-1.5-1.5.673-1.5 1.5-1.5zm0 5c-1.378 0-2.5 1.122-2.5 2.5v5.5h-1c-1.103 0-2 .897-2 2v3.5c0 .276.224.5.5.5s.5-.224.5-.5v-3.5c0-.552.449-1 1-1h3.5c1.378 0 2.5-1.121 2.5-2.5v-4c0-1.378-1.122-2.5-2.5-2.5zm1.5 6.5c0 .827-.673 1.5-1.5 1.5h-1.5v-5.5c0-.827.673-1.5 1.5-1.5s1.5.673 1.5 1.5zm1 5c0 .276-.224.5-.5.5h-3c-.276 0-.5.225-.5.5v1c0 .276-.224.5-.5.5s-.5-.224-.5-.5v-1c0-.827.673-1.5 1.5-1.5h3c.276 0 .5.224.5.5zm-21.5-12.5c1.378 0 2.5-1.122 2.5-2.5s-1.122-2.5-2.5-2.5-2.5 1.122-2.5 2.5 1.122 2.5 2.5 2.5zm0-4c.827 0 1.5.673 1.5 1.5s-.673 1.5-1.5 1.5-1.5-.673-1.5-1.5.673-1.5 1.5-1.5zm3.5 13h-1v-5.5c0-1.378-1.122-2.5-2.5-2.5s-2.5 1.122-2.5 2.5v4c0 1.379 1.122 2.5 2.5 2.5h3.5c.551 0 1 .448 1 1v3.5c0 .276.224.5.5.5s.5-.224.5-.5v-3.5c0-1.103-.897-2-2-2zm-3.5 0c-.827 0-1.5-.673-1.5-1.5v-4c0-.827.673-1.5 1.5-1.5s1.5.673 1.5 1.5v5.5zm2.5 4.5v1c0 .276-.224.5-.5.5s-.5-.224-.5-.5v-1c0-.275-.224-.5-.5-.5h-3c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h3c.827 0 1.5.673 1.5 1.5zm2-9c0-.276.224-.5.5-.5h9c.276 0 .5.224.5.5s-.224.5-.5.5h-9c-.276 0-.5-.224-.5-.5zm1-3v-.5c0-2.206 1.794-4 4-4s4 1.794 4 4v.5c0 .276-.224.5-.5.5s-.5-.224-.5-.5v-.5c0-1.654-1.346-3-3-3s-3 1.346-3 3v.5c0 .276-.224.5-.5.5s-.5-.224-.5-.5zm4-5.5c1.378 0 2.5-1.122 2.5-2.5s-1.122-2.5-2.5-2.5-2.5 1.122-2.5 2.5 1.122 2.5 2.5 2.5zm0-4c.827 0 1.5.673 1.5 1.5s-.673 1.5-1.5 1.5-1.5-.673-1.5-1.5.673-1.5 1.5-1.5z"/>
+            </svg>
+        </div>
+                <span>  Grupo reducido (1-4 personas) </span>
+
+    </li>
+
+
+
+            <li class="feature">
+        <div class="icons">
+        
+           <!-- Icono de FACILIDADES DE PAGO-->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path xmlns="http://www.w3.org/2000/svg"  d="m11.5 1h-7c-1.93 0-3.5 1.57-3.5 3.5v15c0 1.93 1.57 3.5 3.5 3.5h6c.276 0 .5.224.5.5s-.224.5-.5.5h-6c-2.481 0-4.5-2.019-4.5-4.5v-15c0-2.481 2.019-4.5 4.5-4.5h7c2.481 0 4.5 2.019 4.5 4.5v6c0 .276-.224.5-.5.5s-.5-.224-.5-.5v-6c0-1.93-1.57-3.5-3.5-3.5zm8.5 21c-.552 0-1 .448-1 1s.448 1 1 1 1-.448 1-1-.448-1-1-1zm3-3c-.552 0-1 .448-1 1s.448 1 1 1 1-.448 1-1-.448-1-1-1zm-3 0c-.552 0-1 .448-1 1s.448 1 1 1 1-.448 1-1-.448-1-1-1zm-2-4.5v2c0 .827-.673 1.5-1.5 1.5h-2c-.827 0-1.5-.673-1.5-1.5v-2c0-.827.673-1.5 1.5-1.5h2c.827 0 1.5.673 1.5 1.5zm-1 0c0-.275-.225-.5-.5-.5h-2c-.275 0-.5.225-.5.5v2c0 .275.225.5.5.5h2c.275 0 .5-.225.5-.5zm1 6v2c0 .827-.673 1.5-1.5 1.5h-2c-.827 0-1.5-.673-1.5-1.5v-2c0-.827.673-1.5 1.5-1.5h2c.827 0 1.5.673 1.5 1.5zm-1 0c0-.275-.225-.5-.5-.5h-2c-.275 0-.5.225-.5.5v2c0 .275.225.5.5.5h2c.275 0 .5-.225.5-.5zm7-6v2c0 .827-.673 1.5-1.5 1.5h-2c-.827 0-1.5-.673-1.5-1.5v-2c0-.827.673-1.5 1.5-1.5h2c.827 0 1.5.673 1.5 1.5zm-1 0c0-.275-.225-.5-.5-.5h-2c-.275 0-.5.225-.5.5v2c0 .275.225.5.5.5h2c.275 0 .5-.225.5-.5zm-1.5.25c-.414 0-.75.336-.75.75s.336.75.75.75.75-.336.75-.75-.336-.75-.75-.75zm-6 0c-.414 0-.75.336-.75.75s.336.75.75.75.75-.336.75-.75-.336-.75-.75-.75zm0 6c-.414 0-.75.336-.75.75s.336.75.75.75.75-.336.75-.75-.336-.75-.75-.75zm-9-.75c-.276 0-.5.224-.5.5s.224.5.5.5h3c.276 0 .5-.224.5-.5s-.224-.5-.5-.5zm.658-12h1.684c.576 0 1.158.309 1.158 1 0 .276.224.5.5.5s.5-.224.5-.5c0-1.159-.907-2-2.158-2h-.342v-.5c0-.276-.224-.5-.5-.5s-.5.224-.5.5v.5h-.342c-1.19 0-2.158.968-2.158 2.158 0 1.059.759 1.954 1.795 2.127l2.237.415c.561.094.968.574.968 1.142 0 .639-.52 1.158-1.158 1.158h-1.684c-.576 0-1.158-.31-1.158-1 0-.276-.224-.5-.5-.5s-.5.224-.5.5c0 1.159.907 2 2.158 2h.342v.5c0 .276.224.5.5.5s.5-.224.5-.5v-.5h.342c1.19 0 2.158-.968 2.158-2.158 0-1.059-.759-1.954-1.795-2.127l-2.237-.415c-.561-.094-.968-.574-.968-1.142 0-.639.52-1.158 1.158-1.158z"/>
+            </svg>
+        </div>
+                <span>  Facilidades de pago  </span>
+
+    </li>
+
+
+
+            <li class="feature">
+        <div class="icons">
+        
+             <!-- Icono de 4 SESIONES SEMANALES-->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path xmlns="http://www.w3.org/2000/svg" d="m12 10c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2zm0 3c-.551 0-1-.449-1-1s.449-1 1-1 1 .449 1 1-.449 1-1 1zm7-7c.827 0 1.5-.673 1.5-1.5s-.673-1.5-1.5-1.5-1.5.673-1.5 1.5.673 1.5 1.5 1.5zm0-2c.276 0 .5.224.5.5s-.224.5-.5.5-.5-.224-.5-.5.224-.5.5-.5zm-7 2c.827 0 1.5-.673 1.5-1.5s-.673-1.5-1.5-1.5-1.5.673-1.5 1.5.673 1.5 1.5 1.5zm0-2c.276 0 .5.224.5.5s-.224.5-.5.5-.5-.224-.5-.5.224-.5.5-.5zm-7 2c.827 0 1.5-.673 1.5-1.5s-.673-1.5-1.5-1.5-1.5.673-1.5 1.5.673 1.5 1.5 1.5zm0-2c.276 0 .5.224.5.5s-.224.5-.5.5-.5-.224-.5-.5.224-.5.5-.5zm9.94 5.4c.055.271-.12.535-.39.589-.264.056-.536-.118-.589-.39-.188-.927-1.013-1.6-1.96-1.6s-1.772.673-1.96 1.6c-.054.271-.318.446-.589.39-.271-.055-.445-.319-.39-.589.282-1.391 1.519-2.4 2.94-2.4s2.658 1.009 2.94 2.4zm-7 0c.055.271-.12.535-.39.589-.264.056-.536-.118-.589-.39-.188-.927-1.013-1.6-1.96-1.6s-1.772.673-1.96 1.6c-.055.271-.319.446-.589.39-.271-.055-.445-.319-.39-.589.282-1.391 1.519-2.4 2.94-2.4s2.658 1.009 2.94 2.4zm14 0c.055.271-.12.535-.39.589-.264.056-.536-.118-.589-.39-.188-.927-1.013-1.6-1.96-1.6s-1.772.673-1.96 1.6c-.055.271-.317.446-.589.39-.271-.055-.445-.319-.39-.589.282-1.391 1.519-2.4 2.94-2.4s2.658 1.009 2.94 2.4zm-2.44-8.4h-15c-2.481 0-4.5 2.019-4.5 4.5v9c0 2.481 2.019 4.5 4.5 4.5h7v3h-5c-.276 0-.5.224-.5.5s.224.5.5.5h11c.276 0 .5-.224.5-.5s-.224-.5-.5-.5h-5v-3h7c2.481 0 4.5-2.019 4.5-4.5v-9c0-2.481-2.019-4.5-4.5-4.5zm-10.325 17c.417-1.172 1.542-2 2.825-2s2.408.828 2.825 2zm13.825-3.5c0 1.93-1.57 3.5-3.5 3.5h-3.643c-.452-1.734-2.029-3-3.857-3s-3.406 1.266-3.857 3h-3.643c-1.93 0-3.5-1.57-3.5-3.5v-9c0-1.93 1.57-3.5 3.5-3.5h15c1.93 0 3.5 1.57 3.5 3.5z"/>
+            </svg>
+        </div>
+                <span>   sesiones grupales semanales </span>
+
+    </li>
+
+
+
+            <li class="feature">
+        <div class="icons">
+        
+              <!-- Icono de COMUNIDAD DE APOYO-->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path xmlns="http://www.w3.org/2000/svg"  d="M1.005,9.429c.282-1.955,2-3.429,3.995-3.429,.599,0,1.174,.127,1.711,.377,.25,.116,.359,.414,.242,.664-.116,.251-.413,.36-.664,.242-.404-.188-.837-.283-1.289-.283-1.501,0-2.793,1.105-3.005,2.571-.036,.249-.25,.429-.494,.429-.023,0-.048-.002-.072-.005-.273-.04-.463-.293-.423-.566Zm16.284-3.052c-.25,.116-.359,.414-.242,.664,.116,.251,.413,.36,.664,.242,.404-.188,.837-.283,1.289-.283,1.501,0,2.793,1.105,3.005,2.571,.036,.249,.25,.429,.494,.429,.023,0,.048-.002,.072-.005,.273-.04,.463-.293,.423-.566-.282-1.955-2-3.429-3.995-3.429-.599,0-1.174,.127-1.711,.377Zm-.289-3.377c0-1.103,.897-2,2-2s2,.897,2,2-.897,2-2,2-2-.897-2-2Zm1,0c0,.552,.449,1,1,1s1-.448,1-1-.449-1-1-1-1,.448-1,1Zm-9.571,6.995c.274,.036,.527-.151,.566-.424,.212-1.466,1.504-2.571,3.005-2.571s2.793,1.105,3.005,2.571c.036,.249,.25,.429,.494,.429,.023,0,.048-.002,.072-.005,.273-.04,.463-.293,.423-.566-.282-1.955-2-3.429-3.995-3.429s-3.712,1.474-3.995,3.429c-.04,.273,.15,.526,.423,.566Zm15.56,2.526c-.275,6.437-5.542,11.479-11.989,11.479S.287,18.958,.011,12.521c-.012-.276,.202-.509,.478-.521,.271,.008,.509,.202,.521,.479,.053,1.243,.32,2.423,.746,3.521H6.663c-.353-1.092-.597-2.257-.651-3.478-.012-.276,.201-.51,.477-.521,.272-.031,.509,.2,.522,.477,.055,1.235,.331,2.417,.72,3.522h8.538c.389-1.105,.665-2.287,.72-3.522,.013-.276,.251-.504,.522-.477,.276,.012,.489,.245,.477,.521-.055,1.22-.299,2.386-.651,3.478h4.907c.426-1.098,.693-2.279,.746-3.521,.012-.276,.249-.469,.521-.479,.276,.013,.49,.245,.478,.521Zm-13.23,10.404c-1.02-1.145-2.67-3.257-3.736-5.925H2.204c1.641,3.223,4.81,5.507,8.555,5.925Zm1.241-.137c.762-.798,2.648-2.951,3.877-5.788h-7.755c1.229,2.838,3.115,4.991,3.877,5.788Zm9.796-5.788h-4.819c-1.066,2.668-2.716,4.78-3.736,5.925,3.745-.418,6.914-2.703,8.555-5.925ZM3,3c0-1.103,.897-2,2-2s2,.897,2,2-.897,2-2,2-2-.897-2-2Zm1,0c0,.552,.449,1,1,1s1-.448,1-1-.449-1-1-1-1,.448-1,1Zm5.615-.5c0-1.379,1.122-2.5,2.5-2.5s2.5,1.121,2.5,2.5-1.122,2.5-2.5,2.5-2.5-1.121-2.5-2.5Zm1,0c0,.827,.673,1.5,1.5,1.5s1.5-.673,1.5-1.5-.673-1.5-1.5-1.5-1.5,.673-1.5,1.5Z"/>
+            </svg>
+        </div>
+                <span>  Comunidad de apoyo  </span>
+
+    </li>
+
+
+            <li class="feature">
+        <div class="icons">
+        
+            <!-- Icono de MATERIAL EXCLUSIVO-->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path xmlns="http://www.w3.org/2000/svg"  d="M24,3.5v13.961c0,2.013-1.354,3.796-3.294,4.335l-7.12,1.981c-1.038,.288-2.135,.289-3.173,0l-7.12-1.981c-1.939-.54-3.293-2.322-3.293-4.335V4.5c-.01-.649,1.01-.649,1,0v12.961c0,1.565,1.053,2.952,2.562,3.372l7.121,1.981c.862,.24,1.773,.24,2.636,0l7.12-1.982c1.509-.419,2.562-1.806,2.562-3.372V3.5c-.01-.649,1.01-.649,1,0ZM3,15.911V3.5c0-1.108,.507-2.127,1.392-2.794C5.277,.039,6.396-.17,7.461,.134l3.225,.922c.538,.153,.993,.48,1.313,.908,.32-.428,.776-.755,1.313-.908l3.225-.922c1.066-.304,2.185-.096,3.069,.572,.885,.667,1.392,1.686,1.392,2.794V15.911c0,1.554-1.044,2.938-2.538,3.366l-5.609,1.603c-.558,.159-1.148,.159-1.706,0l-5.608-1.603c-1.495-.427-2.539-1.812-2.539-3.366ZM12.5,3.46V19.938c.026-.006,5.687-1.623,5.687-1.623,1.067-.305,1.813-1.293,1.813-2.404V3.5c0-.792-.362-1.519-.995-1.996-.634-.479-1.44-.625-2.192-.408l-3.225,.922c-.641,.183-1.088,.776-1.088,1.442ZM4,15.911c0,1.11,.746,2.099,1.813,2.404,0,0,5.661,1.617,5.687,1.623V3.46c0-.666-.447-1.259-1.088-1.442l-3.225-.922c-1.529-.489-3.236,.793-3.187,2.404V15.911Z"/>
+            </svg>
+        </div>
+                <span>   Material exclusivo </span>
+
+    </li>
+
+
+            <li class="feature">
+        <div class="icons">
+        
+             <!-- Icono de CONTENIDO PERSONALIZADO-->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path xmlns="http://www.w3.org/2000/svg"  d="m11.002,8.663c.294.224.646.336.998.336s.704-.112.998-.336c1.038-.792,4.002-3.579,4.002-5.913,0-1.517-1.233-2.75-2.75-2.75-.929,0-1.752.463-2.25,1.17-.498-.708-1.321-1.17-2.25-1.17-1.517,0-2.75,1.233-2.75,2.75,0,2.334,2.964,5.121,4.002,5.913Zm-1.252-7.663c.965,0,1.75.785,1.75,1.75,0,.276.224.5.5.5s.5-.224.5-.5c0-.965.785-1.75,1.75-1.75s1.75.785,1.75,1.75c0,1.613-2.153,4.008-3.609,5.118-.23.176-.551.176-.781,0-1.456-1.11-3.609-3.505-3.609-5.118,0-.965.785-1.75,1.75-1.75Zm2.25,11c-1.654,0-3,1.346-3,3s1.346,3,3,3,3-1.346,3-3-1.346-3-3-3Zm0,5c-1.103,0-2-.897-2-2s.897-2,2-2,2,.897,2,2-.897,2-2,2Zm9.854-3.146l-5.854,5.854v3.793c0,.276-.224.5-.5.5s-.5-.224-.5-.5v-3.5h-6v3.5c0,.276-.224.5-.5.5s-.5-.224-.5-.5v-3.793l-5.854-5.854c-.195-.195-.195-.512,0-.707s.512-.195.707,0l5.854,5.854h6.586l5.854-5.854c.195-.195.512-.195.707,0s.195.512,0,.707Z"/>
+            </svg>
+        </div>
+                <span>  Contenido personalizado </span>
+
+    </li>
+
+
+            <li class="feature">
+        <div class="icons">
+        
+              <!-- Icono de MATERIAL APOYO -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path xmlns="http://www.w3.org/2000/svg"  d="m11,23.5c0,.276-.224.5-.5.5h-6c-2.481,0-4.5-2.019-4.5-4.5V4.501C0,2.02,2.018,0,4.5,0h11c2.481,0,4.5,2.018,4.5,4.499v3c0,.276-.223.5-.5.5s-.5-.224-.5-.5v-3c0-1.93-1.571-3.5-3.5-3.5H4.5c-1.93,0-3.5,1.571-3.5,3.501v14.999c0,1.93,1.571,3.5,3.5,3.5h6c.276,0,.5.224.5.5Zm12.854.354c-.098.098-.226.146-.354.146s-.256-.049-.354-.146l-3.423-3.423c-1.137.976-2.611,1.569-4.224,1.569-3.584,0-6.5-2.916-6.5-6.5s2.916-6.5,6.5-6.5,6.5,2.916,6.5,6.5c0,1.612-.594,3.086-1.569,4.224l3.423,3.423c.195.195.195.512,0,.707Zm-2.854-8.354c0-3.032-2.467-5.5-5.5-5.5s-5.5,2.468-5.5,5.5,2.467,5.5,5.5,5.5,5.5-2.468,5.5-5.5ZM6.5,5h-2c-.276,0-.5.224-.5.5s.224.5.5.5h2c.276,0,.5-.224.5-.5s-.224-.5-.5-.5Zm0,10h-2c-.276,0-.5.224-.5.5s.224.5.5.5h2c.276,0,.5-.224.5-.5s-.224-.5-.5-.5Zm3-10c-.276,0-.5.224-.5.5s.224.5.5.5h6c.276,0,.5-.224.5-.5s-.224-.5-.5-.5h-6Zm-3,5h-2c-.276,0-.5.224-.5.5s.224.5.5.5h2c.276,0,.5-.224.5-.5s-.224-.5-.5-.5Zm11.643,4.131l-2.706,2.618c-.337.33-.886.334-1.223.004l-1.363-1.345c-.196-.194-.513-.192-.707.004-.194.197-.192.514.005.707l1.364,1.347c.362.354.837.531,1.312.531s.951-.178,1.311-.533l2.703-2.614c.198-.192.204-.509.012-.707-.191-.198-.508-.202-.707-.012Z"/>
+            </svg>
+        </div>
+                <span>  Recursos </span>
+
+    </li>
+
+
+        </ul>
+      </div>
+
+        <!-- ** AQUI TERMINA MI LISTA COLAPSADA ** -->
+
+        
+
+
+      <!-- Toggle -->
+      <div class="toggle-row">
+        <button id="toggle-more" class="toggle-btn" aria-expanded="false" aria-controls="more-wrap">
+          <span id="toggle-label">Ver todos mis beneficios</span>
+          <span class="arrow" aria-hidden="true">❯</span>
+        </button>
+      </div>
     </div>
+  </section>
+
+
+<section style="margin-top:6px;">
+    <div class="card">
+      <div class="section-title">
+        <div class="section-num">02</div>
+        <div class="section-head">Configura TU SUSCRIPCIÓN</div>
+      </div>
+
+       <li class="feature">
+        <div class="icons">
+        
+            <!-- Description 02-->
+           
+        </div>
+                <span> Completa tu suscripción con PayPal de forma segura. </span>
+
+    </li> 
+ 
+        
+      </p>
+      </div>
+</section>
+
+
+  <p class="muted-small">¿Necesitas ayuda? Escríbenos a <a class="inline-link" href="mailto:support@tengymm.com">support@tengymm.com</a></p>
+</main>
+
+<!-- Sticky CTA -->
+<div class="sticky-cta" role="region" aria-label="Acciones">
+  <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-0A461182YP962081ANEOO2VY" class="cta">Comenzar mi entrenamiento</a>
 </div>
+
+<script>
+  (function(){
+    const toggle = document.getElementById('toggle-more');
+    const moreWrap = document.getElementById('more-wrap');
+    const label = document.getElementById('toggle-label');
+
+    // Progressive enhancement: hide JS fallback details if any
+    // Initial state: collapsed
+    toggle.addEventListener('click', function(){
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      if(isOpen){
+        toggle.setAttribute('aria-expanded','false');
+        moreWrap.classList.remove('open');
+        moreWrap.setAttribute('aria-hidden','true');
+        label.textContent = 'Ver todos mis beneficios';
+      } else {
+        toggle.setAttribute('aria-expanded','true');
+        moreWrap.classList.add('open');
+        moreWrap.setAttribute('aria-hidden','false');
+        label.textContent = 'Mostrar menos';
+        // smooth scroll to reveal content on small screens (optional)
+        setTimeout(()=> {
+          // scroll the expanded content slightly into view on small devices
+          moreWrap.scrollIntoView({behavior:'smooth', block:'nearest'});
+        }, 200);
+      }
+    });
+
+    // Accessibility: allow Enter/Space when focused (button already handles it)
+    // Ensure reduced-motion respect
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.documentElement.classList.add('reduce-motion');
+    }
+  })();
+</script>
+
+</body>
+
+</html>
